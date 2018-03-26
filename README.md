@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Features:
+
+#sign-up page  
+#login page
+#events index w/ search/filters
+#my events
+#hosts/guests index
+#profile/myaccount
+#rsvp form
+#event show page
+#view comments
+#location page / search filter
