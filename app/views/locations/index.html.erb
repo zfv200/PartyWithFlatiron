@@ -1,0 +1,4 @@
+All Locations: <br>
+<% @locations.each do |location| %>
+<%= link_to location.name, location_path(location) %> <br>
+<% end %>
