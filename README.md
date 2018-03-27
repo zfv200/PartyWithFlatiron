@@ -33,6 +33,7 @@ Features:
 #######max_guests thing doesn't really work +
 #######errors
 #######way to check attendance
+#######way to 'un-rsvp' (delete rsvp nested resource)
 #######button_to problem (old code   <!-- <%= button_to "Cancel RSVP", event_rsvp_path(@event, @rsvp), method: 'delete'%> -->
 )
 <!-- <form class="button_to" method="post" action="/events/<%=@event.id%>/rsvps/<%= @rsvp.id%>">
@@ -45,7 +46,7 @@ Features:
 #Suggest an event
 <!-- #hosts/guests index -->
 #profile/myaccount
-#rsvp form
+<!-- #rsvp form -->
 <!-- #event show page -->
 #view comments
 #location page / search filter
