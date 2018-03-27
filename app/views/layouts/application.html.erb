@@ -9,11 +9,15 @@
   </head>
 
   <body>
-    <%= yield %>
-
+    <%= link_to "Home", home_path%>
     <% if session[:user_id] %>
     <%= link_to "Logout", logout_path, method: "post" %>
     <% end %>
+
+    <br><br>
+    <%= yield %>
+<br><br>
+
 
   </body>
 </html>

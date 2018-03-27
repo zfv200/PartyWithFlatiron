@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+
+Events Hosted by Me:<br>
+<% @user.events.each do |event| %>
+<%= link_to event.title, event_path(event) %><br>
+<% end %>
+
+<br>
+
+<%= link_to "Add Event", new_event_path%>

@@ -36,3 +36,5 @@ Features:
 #event show page
 #view comments
 #location page / search filter
+#category dropdown menu?
+#errors
