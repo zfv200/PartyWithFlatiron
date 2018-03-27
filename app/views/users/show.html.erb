@@ -1,0 +1,13 @@
+<h1><%= @user.username%>'s profile</h1>
+<br>
+<h3>Events I'm Hosting:</h3>
+<%= "No events yet!" if @user.events.empty?%>
+<% @user.events.each do |event| %>
+<%= link_to event.title, event_path(event) %><br>
+<% end %>
+
+<h3>Events I'm Attending</h3>
+<%= "No events yet!" if @user.rsvps.empty?%>
+<% @user.rsvps.each do |rsvp| %>
+<%= link_to rsvp.event.title, event_path(rsvp.event) %><br>
+<% end %>

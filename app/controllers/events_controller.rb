@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     set_event
     @rsvp = Rsvp.new
     @rsvps = Rsvp.where(event_id: @event.id)
+    @comment = Comment.new
     @user = User.find(session[:user_id])
   end
 
