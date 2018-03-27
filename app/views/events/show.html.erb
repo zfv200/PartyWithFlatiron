@@ -1,0 +1,39 @@
+Name of Event: <%= @event.title %><br>
+Category: <%= @event.category %><br>
+Date: <%= @event.date%><br>
+Description: <%= @event.description%><br>
+Location: <%= @event.location.name%><br>
+Hosted by: <%= @event.user.username %><br>
+Guests Attending:
+<% @rsvps.each do |rsvp| %>
+<%= rsvp.user.username %>
+<% end %>
+<br>
+<% if @event.check_attendance == true %>
+  <%= form_for [@event, @rsvp] do |f| %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.hidden_field :age, value: @user.age %>
+    <%= f.submit "RSVP" %>
+  <% end %>
+<% else %>
+  RSVP delete in progress
+<% end %>
+
+<%= form_with url: event_path(@event) do |f| %>
+  <%= f.submit "Save" %>
+<% end %>
+
+
+<!-- Guests Attending: -->
+
+
+
+
+<!-- t.string "title"
+t.string "category"
+t.integer "max_guests"
+t.datetime "date"
+t.string "description"
+t.integer "location_id"
+t.integer "user_id" -->
