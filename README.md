@@ -41,7 +41,8 @@ Features:
   <input type="submit" value="Cancel RSVP">
 </form> -->
 
-
+Clean up:
+#clean up resources(only the ones we're actually using)
 
 #Suggest an event
 <!-- #hosts/guests index -->
