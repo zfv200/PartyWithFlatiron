@@ -7,7 +7,6 @@ class Event < ApplicationRecord
 
 
   def check_attendance
-    #way to check attendance
     true
   end
 
