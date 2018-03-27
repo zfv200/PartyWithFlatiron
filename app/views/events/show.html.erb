@@ -2,11 +2,11 @@ Name of Event: <%= @event.title %><br>
 Category: <%= @event.category %><br>
 Date: <%= @event.date%><br>
 Description: <%= @event.description%><br>
-Location: <%= @event.location.name%><br>
+Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
 Hosted by: <%= @event.user.username %><br>
 Guests Attending:
 <% @rsvps.each do |rsvp| %>
-<%= rsvp.user.username %>
+<%= link_to rsvp.user.username, user_path(rsvp.user) %>
 <% end %>
 <br>
 <% if @event.check_attendance == true %>
@@ -23,17 +23,30 @@ Guests Attending:
 <%= form_with url: event_path(@event) do |f| %>
   <%= f.submit "Save" %>
 <% end %>
+<br><br>
+Leave a Comment!
+<%= form_for [@event, @comment] do |f| %>
+  <%= f.label :content%>
+  <%= f.text_area :content%><br>
+  <%= f.hidden_field :event_id, value: @event.id%>
+  <%= f.hidden_field :user_id, value: @user.id%>
+  <%= f.submit "Add Comment"%>
+<% end %>
+<br>
 
-
-<!-- Guests Attending: -->
-
-
-
-
-<!-- t.string "title"
-t.string "category"
-t.integer "max_guests"
-t.datetime "date"
-t.string "description"
-t.integer "location_id"
-t.integer "user_id" -->
+Comments:<br><br>
+<%= "Be the first to comment!" if @event.comments.empty?%>
+<% @event.comments.each do |comment| %>
+  <% if !@editor.nil? %>
+    <%= form_for [@event, comment] do |f| %>
+      <%= f.label :content%>
+      <%= f.text_area :content%><br>
+      <%= f.submit "Edit Comment"%><br>
+      <%end%>
+  <% else %>
+  <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
+  <%= link_to "edit", edit_event_comment_path(@event, comment), method: :get if comment.user == @user %>
+  <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
+  <br>
+  <% end %>
+<% end %>
