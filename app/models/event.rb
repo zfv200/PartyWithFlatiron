@@ -7,10 +7,8 @@ class Event < ApplicationRecord
 
 
   def check_attendance
-    @user = User.find_by(@session_id)
-    self.rsvps.any? do |rsvp|
-      rsvp.user.username == @user.username
-    end
+    #way to check attendance
+    true
   end
 
 end

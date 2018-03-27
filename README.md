@@ -32,6 +32,7 @@ Features:
 #my events
 #######max_guests thing doesn't really work +
 #######errors
+#######way to check attendance
 #######button_to problem (old code   <!-- <%= button_to "Cancel RSVP", event_rsvp_path(@event, @rsvp), method: 'delete'%> -->
 )
 <!-- <form class="button_to" method="post" action="/events/<%=@event.id%>/rsvps/<%= @rsvp.id%>">
@@ -40,12 +41,16 @@ Features:
 </form> -->
 
 
+
 #Suggest an event
-#hosts/guests index
+<!-- #hosts/guests index -->
 #profile/myaccount
 #rsvp form
-#event show page
+<!-- #event show page -->
 #view comments
 #location page / search filter
-#category dropdown menu?
-#errors
+<!-- #category dropdown menu? -->
+
+#methods:
+-- category query (party type)
+-- category query (party type)

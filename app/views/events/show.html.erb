@@ -9,7 +9,7 @@ Guests Attending:
 <%= rsvp.user.username %>
 <% end %>
 <br>
-<% if @event.check_attendance %>
+<% if @event.check_attendance == true %>
   <%= form_for [@event, @rsvp] do |f| %>
     <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.hidden_field :event_id, value: @event.id %>
@@ -19,8 +19,6 @@ Guests Attending:
 <% else %>
   RSVP delete in progress
 <% end %>
-
-
 
 <%= form_with url: event_path(@event) do |f| %>
   <%= f.submit "Save" %>

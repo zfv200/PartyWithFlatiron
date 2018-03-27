@@ -4,7 +4,11 @@ Events Hosted by Me:<br>
 <% @user.events.each do |event| %>
 <%= link_to event.title, event_path(event) %><br>
 <% end %>
-
+<br>
+Events I'm Attending:<br>
+<% @user.rsvps.each do |rsvp| %>
+  <%= link_to rsvp.event.title, event_path(rsvp.event)%><br>
+<% end %>
 <br>
 
 <%= link_to "Add Event", new_event_path%>
