@@ -1,0 +1,8 @@
+<% @events.each do |event| %>
+Name of Event: <%= link_to event.title, event_path(event) %><br>
+Category: <%= event.category %><br>
+Date: <%= event.date%><br>
+Description: <%= event.description%><br>
+Location: <%= event.location.name%><br>
+Hosted by: <%= event.user.username %><br><br><br>
+<% end %>

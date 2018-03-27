@@ -30,6 +30,8 @@ Features:
 #login page
 #events index w/ search/filters
 #my events
+#######max_guests thing doesn't really work +
+#Suggest an event
 #hosts/guests index
 #profile/myaccount
 #rsvp form

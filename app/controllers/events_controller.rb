@@ -1,11 +1,15 @@
 class EventsController < ApplicationController
+  before_action :require_login
 
   def index
-
+    @events = Event.all
   end
 
   def show
     set_event
+    @rsvp = Rsvp.new
+    @rsvps = Rsvp.where(event_id: @event.id)
+    @user = User.find(session[:user_id])
   end
 
   def new
@@ -27,6 +31,7 @@ class EventsController < ApplicationController
   end
 
   private
+
 
   def set_event
     @event = Event.find(params[:id])
