@@ -1,0 +1,6 @@
+Name of Location: <%= @location.name %><br>
+
+<br>
+Name of Events: <% @events.each do |event| %>
+  <br><%= link_to event.title, event_path(event) %>
+  <% end %>

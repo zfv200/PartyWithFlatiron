@@ -2,7 +2,7 @@ Name of Event: <%= @event.title %><br>
 Category: <%= @event.category %><br>
 Date: <%= @event.date%><br>
 Description: <%= @event.description%><br>
-Location: <%= @event.location.name%><br>
+Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
 Hosted by: <%= @event.user.username %><br>
 Guests Attending:
 <% @rsvps.each do |rsvp| %>
