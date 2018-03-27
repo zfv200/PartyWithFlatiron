@@ -11,6 +11,10 @@ class RsvpsController < ApplicationController
     end
   end
 
+  def destroy
+    byebug
+  end
+
 
   private
 

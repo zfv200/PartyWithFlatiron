@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   before_action :require_login
 
+  def session_variable
+    @session_id = session[:user_id]
+  end
+
   def index
     @events = Event.all
   end
