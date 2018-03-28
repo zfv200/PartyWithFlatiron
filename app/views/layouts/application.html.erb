@@ -6,12 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <%= link_to "Home", home_path%>
     <%= link_to "All Events", events_path%>
-    <%= link_to "My Profile", user_path(User.find(session[:user_id])) if session[:user_id]%>
     <%= link_to "All Locations", locations_path%>
     <% if session[:user_id] %>
     <%= link_to "Logout", logout_path, method: "post" %>
@@ -20,7 +20,6 @@
     <br><br>
     <%= yield %>
 <br><br>
-
 
   </body>
 </html>
