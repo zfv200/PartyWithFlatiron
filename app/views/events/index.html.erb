@@ -1,3 +1,16 @@
+<%= form_with url: '/search', method: :get, local: true do |f|%>
+<%= f.label :q, "Filter by location:"%>
+<%= f.collection_select :location_id, Location.all, :id, :name, include_blank: true%>
+<%= f.submit "Filter"%>
+<% end %><br>
+
+<%= form_with url: '/search', method: :get, local: true do |f|%>
+<%= f.label :q, "Filter by Category:"%>
+<%= f.select :category, options_for_select([["Select Event Category", ""], "Birthday", "Concert", "Dance Party", "Game Night", "Movie Night"]) %>
+<%= f.submit "Filter"%>
+<% end %><br>
+
+
 <% @events.each do |event| %>
 Name of Event: <%= link_to event.title, event_path(event) %><br>
 Category: <%= event.category %><br>
