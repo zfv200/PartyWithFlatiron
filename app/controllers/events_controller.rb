@@ -12,8 +12,8 @@ class EventsController < ApplicationController
   def show
     set_event
     #helper method here?
-    if @event.rsvps.any? { |rsvp| rsvp.user.username = current_user.username }
-      @rsvp = Rsvp.find_by(event_id: 1, user_id: 1)
+    if @event.rsvps.any? { |rsvp| rsvp.user.id == current_user.id }
+      @rsvp = Rsvp.find_by(event_id: @event.id, user_id: current_user.id)
     else
       @rsvp = Rsvp.new
     end
