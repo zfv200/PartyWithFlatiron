@@ -13,9 +13,9 @@
     <%= link_to "Home", home_path%>
     <%= link_to "All Events", events_path%>
     <%= link_to "All Locations", locations_path%>
-    <% if session[:user_id] %>
-    <%= link_to "Logout", logout_path, method: "post" %>
-    <% end %>
+    <%= profile_link %>
+    <%= logout_link %>
+
 
     <br><br>
     <%= yield %>

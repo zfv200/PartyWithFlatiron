@@ -31,8 +31,8 @@ Features:
 #events index w/ search/filters
 #my events
 #######max_guests thing doesn't really work +
-#######errors
-#######way to check attendance
+#errors
+<!-- #######way to check attendance -->
 #######way to 'un-rsvp' (delete rsvp nested resource)
 #######button_to problem (old code   <!-- <%= button_to "Cancel RSVP", event_rsvp_path(@event, @rsvp), method: 'delete'%> -->
 )

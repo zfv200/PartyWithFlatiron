@@ -4,3 +4,8 @@
   <%= f.hidden_field :age, value: @user.age %>
   <%= f.submit "RSVP" %>
 <% end %>
+
+
+<% if session[:user_id] %>
+<%= link_to "Logout", logout_path, method: "post" %>
+<% end %>

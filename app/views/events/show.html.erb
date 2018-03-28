@@ -27,7 +27,7 @@ Leave a Comment!
 <br>
 
 Comments:<br><br>
-<%= flash[:error]%>
+<%= flash[:error]%><br><br>
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
   <% if !@editor.nil? %>
