@@ -9,16 +9,9 @@ Guests Attending:
 <%= link_to rsvp.user.username, user_path(rsvp.user) %>
 <% end %>
 <br>
-<% if @event.check_attendance == true %>
-  <%= form_for [@event, @rsvp] do |f| %>
-    <%= f.hidden_field :user_id, value: @user.id %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.hidden_field :age, value: @user.age %>
-    <%= f.submit "RSVP" %>
-  <% end %>
-<% else %>
-  RSVP delete in progress
-<% end %>
+
+
+<%= rsvp_field(@event, @user, @rsvp)%>
 
 <%= form_with url: event_path(@event) do |f| %>
   <%= f.submit "Save" %>
@@ -26,7 +19,6 @@ Guests Attending:
 <br><br>
 Leave a Comment!
 <%= form_for [@event, @comment] do |f| %>
-  <%= f.label :content%>
   <%= f.text_area :content%><br>
   <%= f.hidden_field :event_id, value: @event.id%>
   <%= f.hidden_field :user_id, value: @user.id%>
@@ -35,6 +27,7 @@ Leave a Comment!
 <br>
 
 Comments:<br><br>
+<%= flash[:error]%><br><br>
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
   <% if !@editor.nil? %>
@@ -45,7 +38,6 @@ Comments:<br><br>
       <%end%>
   <% else %>
   <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
-  <%= link_to "edit", edit_event_comment_path(@event, comment), method: :get if comment.user == @user %>
   <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
   <br>
   <% end %>

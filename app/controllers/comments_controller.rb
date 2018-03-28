@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to event_path(@comment.event)
     else
-      redirect_to event_path(@comment.event)
+      redirect_to event_path(@comment.event), :flash => { :error => "*****Please add some content!*****" }
       #have to add errors here
     end
   end

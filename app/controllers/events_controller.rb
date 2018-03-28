@@ -11,7 +11,13 @@ class EventsController < ApplicationController
 
   def show
     set_event
-    @rsvp = Rsvp.new
+    #helper method here?
+    if @event.rsvps.any? { |rsvp| rsvp.user.id == current_user.id }
+      @rsvp = Rsvp.find_by(event_id: @event.id, user_id: current_user.id)
+    else
+      @rsvp = Rsvp.new
+    end
+
     @rsvps = Rsvp.where(event_id: @event.id)
     @comment = Comment.new
     @user = User.find(session[:user_id])

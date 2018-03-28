@@ -6,8 +6,4 @@ class Event < ApplicationRecord
   belongs_to :user
 
 
-  def check_attendance
-    true
-  end
-
 end
