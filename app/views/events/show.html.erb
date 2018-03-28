@@ -1,6 +1,6 @@
 Name of Event: <%= @event.title %><br>
 Category: <%= @event.category %><br>
-Date: <%= @event.date%><br>
+Date: <%= @event.date.strftime("%A, %B %d")%><br>
 Description: <%= @event.description%><br>
 Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
 Hosted by: <%= @event.user.username %><br>

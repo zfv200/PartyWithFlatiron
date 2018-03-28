@@ -3,7 +3,7 @@
 <h2>Take a breather! No need for any rash decisions. Please take a day to think this over</h2>
 
 
-<h1 id="demo"></h1>
+<h1 id="timer"></h1>
 
 <script>
 // Set the date we're counting down to
@@ -28,13 +28,13 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = hours + "h "
+  document.getElementById("timer").innerHTML = hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "I HOPE YOU HAVE LEARNED YOUR LESSON";
+    document.getElementById("timer").innerHTML = "I HOPE YOU HAVE LEARNED YOUR LESSON";
   }
 }, 1000);
 </script>
