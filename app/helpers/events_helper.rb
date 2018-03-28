@@ -25,7 +25,15 @@ module EventsHelper
       @events = Event.all
     end
   end
-  # 
+
+  def google_map(center)
+    "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=13"
+  end
+
+
+
+
+  #
   # def location_filter
   #   if params[:location_id]
   #     @events = Event.where(location_id: params[:location_id])

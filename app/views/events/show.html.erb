@@ -10,11 +10,11 @@ Guests Attending:
 <% end %>
 <br>
 
-<%= rsvp_field(@event, @user, @rsvp)%>
+<%= rsvp_field(@event, @user, @rsvp)%><br><br>
 
-<%= form_with url: event_path(@event) do |f| %>
-  <%= f.submit "Save" %>
-<% end %>
+<%= image_tag google_map(center: @event.location.name) %>
+
+
 <br><br>
 Leave a Comment!
 <%= form_for [@event, @comment] do |f| %>
