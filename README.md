@@ -33,9 +33,9 @@ Features:
 #######max_guests thing doesn't really work +
 #errors
 <!-- #######way to check attendance -->
-#######way to 'un-rsvp' (delete rsvp nested resource)
-#######button_to problem (old code   <!-- <%= button_to "Cancel RSVP", event_rsvp_path(@event, @rsvp), method: 'delete'%> -->
-)
+<!-- #######way to 'un-rsvp' (delete rsvp nested resource) -->
+<!-- #######button_to problem (old code   <!-- <%= button_to "Cancel RSVP", event_rsvp_path(@event, @rsvp), method: 'delete'%> -->
+
 <!-- <form class="button_to" method="post" action="/events/<%=@event.id%>/rsvps/<%= @rsvp.id%>">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Cancel RSVP">

@@ -38,7 +38,6 @@ Comments:<br><br>
       <%end%>
   <% else %>
   <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
-  <%= link_to "edit", edit_event_comment_path(@event, comment), method: :get if comment.user == @user %>
   <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
   <br>
   <% end %>

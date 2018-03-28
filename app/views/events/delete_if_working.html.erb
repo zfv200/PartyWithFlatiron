@@ -9,3 +9,6 @@
 <% if session[:user_id] %>
 <%= link_to "Logout", logout_path, method: "post" %>
 <% end %>
+
+
+<%= link_to "edit", edit_event_comment_path(@event, comment), method: :get if comment.user == @user %>

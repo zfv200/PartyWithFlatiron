@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   def check_attendance(event)
     event.rsvps.any? do |rsvp|
-      rsvp.user.username == self.username
+      rsvp.user.id == self.id
     end
   end
 
