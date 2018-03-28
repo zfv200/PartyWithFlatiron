@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
   get '/search', to: 'events#index'
+  get '/confirm', to: 'users#confirm'
+  get '/timer', to: 'users#timer'
   resources :locations, :only => [:index, :show]
 
   resources :users, only: [:show]

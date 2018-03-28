@@ -19,7 +19,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm
+    set_user
+  end
+
+  def timer
+    set_user
+  end
+
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :age, :email)

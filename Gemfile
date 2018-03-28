@@ -33,6 +33,9 @@ gem 'bcrypt'
 
 gem 'geocoder'
 
+gem 'countdown'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
