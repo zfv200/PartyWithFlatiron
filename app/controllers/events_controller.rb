@@ -1,23 +1,18 @@
 class EventsController < ApplicationController
   before_action :require_login
+  include EventsHelper
 
   def session_variable
     @session_id = session[:user_id]
   end
 
   def index
-    @events = Event.all
+    event_filter
   end
 
   def show
     set_event
-    #helper method here?
-    if @event.rsvps.any? { |rsvp| rsvp.user.id == current_user.id }
-      @rsvp = Rsvp.find_by(event_id: @event.id, user_id: current_user.id)
-    else
-      @rsvp = Rsvp.new
-    end
-
+    set_page_rsvp(@event, current_user)
     @rsvps = Rsvp.where(event_id: @event.id)
     @comment = Comment.new
     @user = User.find(session[:user_id])

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/home', to: 'welcome#home'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
+  get '/search', to: 'events#index'
   resources :locations, :only => [:index, :show]
 
   resources :users, only: [:show]

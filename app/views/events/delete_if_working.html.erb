@@ -12,3 +12,17 @@
 
 
 <%= link_to "edit", edit_event_comment_path(@event, comment), method: :get if comment.user == @user %>
+<!-- if @event.rsvps.any? { |rsvp| rsvp.user.id == current_user.id }
+  @rsvp = Rsvp.find_by(event_id: @event.id, user_id: current_user.id)
+else
+  @rsvp = Rsvp.new
+end -->
+
+
+<% if !@editor.nil? %>
+  <%= form_for [@event, comment] do |f| %>
+    <%= f.label :content%>
+    <%= f.text_area :content%><br>
+    <%= f.submit "Edit Comment"%><br>
+    <%end%>
+<% else %>

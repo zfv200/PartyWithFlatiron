@@ -10,7 +10,6 @@ Guests Attending:
 <% end %>
 <br>
 
-
 <%= rsvp_field(@event, @user, @rsvp)%>
 
 <%= form_with url: event_path(@event) do |f| %>
@@ -30,15 +29,7 @@ Comments:<br><br>
 <%= flash[:error]%><br><br>
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
-  <% if !@editor.nil? %>
-    <%= form_for [@event, comment] do |f| %>
-      <%= f.label :content%>
-      <%= f.text_area :content%><br>
-      <%= f.submit "Edit Comment"%><br>
-      <%end%>
-  <% else %>
   <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
   <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
   <br>
-  <% end %>
 <% end %>
