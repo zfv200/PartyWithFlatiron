@@ -12,7 +12,7 @@ Guests Attending:
 
 <%= rsvp_field(@event, @user, @rsvp)%><br><br>
 
-<%= image_tag google_map(center: @event.location.name) %>
+<%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
 
 
 <br><br>
