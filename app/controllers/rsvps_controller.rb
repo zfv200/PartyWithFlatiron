@@ -7,12 +7,14 @@ class RsvpsController < ApplicationController
       redirect_to event_path(@rsvp.event)
     else
       redirect_to event_path(@rsvp.event), :flash => {:error => "You've already RSVP'd!"}
-      #flasherror
     end
   end
 
   def destroy
-
+    @rsvp = Rsvp.find_by(event_id: 1, user_id: 1)
+    event_id = @rsvp.event.id
+    @rsvp.destroy
+    redirect_to event_path(event_id)
   end
 
 
