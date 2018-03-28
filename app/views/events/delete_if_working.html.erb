@@ -26,3 +26,8 @@ end -->
     <%= f.submit "Edit Comment"%><br>
     <%end%>
 <% else %>
+
+
+<%= form_with url: event_path(@event) do |f| %>
+  <%= f.submit "Save" %>
+<% end %>

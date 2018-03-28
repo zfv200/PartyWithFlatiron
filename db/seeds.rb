@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Location.create(name: "New York City")
 Location.create(name: "Brooklyn")
-Location.create(name: "Bed-Stuy")
+Location.create(name: "Williamsburg")
 Location.create(name: "East Village")
+Location.create(name: "Harlem")

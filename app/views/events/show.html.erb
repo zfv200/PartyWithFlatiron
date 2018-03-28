@@ -1,6 +1,6 @@
 Name of Event: <%= @event.title %><br>
 Category: <%= @event.category %><br>
-Date: <%= @event.date%><br>
+Date: <%= @event.date.strftime("%A, %B %d")%><br>
 Description: <%= @event.description%><br>
 Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
 Hosted by: <%= @event.user.username %><br>
@@ -10,11 +10,11 @@ Guests Attending:
 <% end %>
 <br>
 
-<%= rsvp_field(@event, @user, @rsvp)%>
+<%= rsvp_field(@event, @user, @rsvp)%><br><br>
 
-<%= form_with url: event_path(@event) do |f| %>
-  <%= f.submit "Save" %>
-<% end %>
+<%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
+
+
 <br><br>
 Leave a Comment!
 <%= form_for [@event, @comment] do |f| %>
