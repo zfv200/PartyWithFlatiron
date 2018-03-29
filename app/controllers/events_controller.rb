@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   def show
     set_event
     set_page_rsvp(@event, current_user)
+    set_center(@event)
     @rsvps = Rsvp.where(event_id: @event.id)
     @comment = Comment.new
     @user = User.find(session[:user_id])
@@ -23,7 +24,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    byebug
     @event = Event.new(event_params)
 
     if @event.save

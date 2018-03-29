@@ -56,7 +56,7 @@
 
 
 <%= rsvp_field(@event, @user, @rsvp)%><br><br>
-<img class="ui medium circular image" <%= image_tag google_map(@event.location.name, @event.lat, @event.long) %>
+<img class="ui medium circular image" <%= image_tag google_map(@center, @event.lat, @event.long) %>
 
 
 <br><br>
