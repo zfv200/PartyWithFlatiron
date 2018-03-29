@@ -10,25 +10,6 @@
 <%= f.submit "Filter"%>
 <% end %><br>
 
-
-<h1>try to get dropdown search by locaiton working</h1>
-<%= form_with url: '/search', method: :get, local: true do |f|%>
-<div class="ui floating dropdown labeled search icon button">
-  <i class="search icon"></i>
-  <span class="text"><%= f.label :q, "Filter by location:"%></span>
-  <div class="menu">
-    <div class="item"> <%= f.collection_select :location_id, Location.all, :id, :name, include_blank: true%>
-    </div>
-  </div>
-</div>
-<%= f.submit "Filter"%>
-<% end %><br>
-
-
-
-
-
-
 <% @events.each do |event| %>
 <div class="ui link cards">
   <div class="card">

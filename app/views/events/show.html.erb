@@ -1,63 +1,64 @@
+<div class="ui left fluid floated segment">
 <div class="ui list">
   <div class="item">
-    <i class="users icon"></i>
+    <i class="star icon"></i>
     <div class="content">
       Name of Event: <%= @event.title %><br>
     </div>
   </div>
   <div class="item">
-    <i class="marker icon"></i>
+    <i class="book icon"></i>
     <div class="content">
       Category: <%= @event.category %><br>
     </div>
   </div>
   <div class="item">
-    <i class="mail icon"></i>
+    <i class="time icon"></i>
     <div class="content">
       Date: <%= @event.date.strftime("%A, %B %d")%><br>
     </div>
   </div>
   <div class="item">
-    <i class="linkify icon"></i>
+    <i class="pencil icon"></i>
     <div class="content">
       Description: <%= @event.description%><br>
     </div>
   </div>
   <div class="item">
-    <i class="linkify icon"></i>
+    <i class="pin icon"></i>
     <div class="content">
       Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
     </div>
   </div>
   <div class="item">
-    <i class="linkify icon"></i>
+    <i class="user icon"></i>
     <div class="content">
       Hosted by: <%= @event.user.username %><br>
     </div>
   </div>
-  <div class="item">
-    <i class="linkify icon"></i>
-    <div class="content">
+</div>
+  <div class="ui styled accordion">
+    <div class="active title">
+      <i class="dropdown icon"></i>
       Guests Attending:
+    </div>
+    <div class="title">
       <% @rsvps.each do |rsvp| %>
-      <div class="ui horizontal list">
-        <div class="item">
+        <div class="content">
           <i class="users icon"></i>
-          <div class="content">
             <%= link_to rsvp.user.username, user_path(rsvp.user) %>
-          </div>
         </div>
-      </div>
-      <% end %>
+        <%end%>
     </div>
   </div>
 
-</div>
-
 
 <%= rsvp_field(@event, @user, @rsvp)%><br><br>
-<img class="ui medium circular image" <%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
+</div>
 
+<div class="ui right floated fliud segment">
+  <img class="ui medium circular image" <%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
+</div>
 
 <br><br>
 Leave a Comment!
@@ -67,9 +68,8 @@ Leave a Comment!
   <%= f.hidden_field :user_id, value: @user.id%>
   <%= f.submit "Add Comment"%>
 <% end %>
-<br>
 
-Comments:<br><br>
+Comments:
 <%= flash[:error]%><br><br>
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
