@@ -26,8 +26,8 @@ class User < ApplicationRecord
     events = objects.collect { |user| user.rsvps.collect { |rsvp_array| rsvp_array.event.title } }.flatten.uniq
     self_events = self.rsvps.collect { |rsvp| rsvp.event.title }
     my_events = self.events.collect {|event| event.title}
-    suggested_events = events.select { |event| !self_events.include?(event) && !my_events.include?(event) }
-    suggested = suggested_events.collect { |event| Event.find_by(title: event)}
+    suggests = events.select { |event| !self_events.include?(event) && !my_events.include?(event) }
+    suggested = suggests.collect { |event| Event.find_by(title: event)}
   end
 
 end

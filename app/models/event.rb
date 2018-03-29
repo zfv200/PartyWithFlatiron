@@ -7,6 +7,7 @@ class Event < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode
+  validate :address_validator
 
 
   def lat
@@ -36,6 +37,12 @@ class Event < ApplicationRecord
       if center
         longitude_num = center[0].longitude if center[0]
       end
+    end
+  end
+
+  def address_validator
+    if Geocoder.search("#{self.address}, New York City").empty?
+      errors.add(:address, "Please enter a valid address!")
     end
   end
 

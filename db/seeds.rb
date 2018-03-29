@@ -22,11 +22,11 @@ cd = User.create(username: "cooldude5", password_digest: "$2a$10$TW1iYbFHpno5zIc
 j = User.create(username: "dudette25", password_digest: "$2a$10$GP8OkP0NITjOgT1MpEUAx.xxo09NiCoBATNZSkeylsx3bmCVSGlUG", age: "22", email: "dudette@gmail.com")
 
 Event.create([
-  {title: "My awesome bday!!!", category: "Birthday", max_guests: "30", date: DateTime.new(2018, 05, 15, 18, 00, 0), description: "Come on out for my bdayy, it's gonna be SWEET. BYO everything.",  location: ny, user: z},
-  {title: "Dance party!!", category: "Dance Party", max_guests: "40", date: DateTime.new(2018, 04, 10, 00, 00, 0), description: "Bring your dancing shoes!", location: wb, user: y},
-  {title: "SWEET concert", category: "Concert", max_guests: "50", date: DateTime.new(2018, 04, 20, 00, 00, 0), description: "VERY cool bands will be playing, trust me.", location: c, user: cd},
-  {title: "Catan marathon!!", category: "Game Night", max_guests: "25", date: DateTime.new(2018, 04, 30, 00, 00, 0), description: "Come get your Settlers of Catan on. $1,000,000 first prize!!!", location: bk, user: j},
-  {title: "Jaws screening...on the Hudson River!", category: "Movie Night", max_guests: "30", date: DateTime.new(2018, 04, 02, 00, 00, 0), description: "We will be screening jaws on our NEW floating screen! Come early to grab an inner tube to get out on the water for this immersive experience!", location: c, user: cd}
+  {title: "My awesome bday!!!", category: "Birthday", max_guests: "30", date: DateTime.new(2018, 05, 15, 18, 00, 0), description: "Come on out for my bdayy, it's gonna be SWEET. BYO everything.",  location: ny, user: z, address: "55 East 10th Street"},
+  {title: "Dance party!!", category: "Dance Party", max_guests: "40", date: DateTime.new(2018, 04, 10, 00, 00, 0), description: "Bring your dancing shoes!", location: wb, user: y, address: "285 Kent"},
+  {title: "SWEET concert", category: "Concert", max_guests: "50", date: DateTime.new(2018, 04, 20, 00, 00, 0), description: "VERY cool bands will be playing, trust me.", location: c, user: cd, address: "125 East 11th Street"},
+  {title: "Catan marathon!!", category: "Game Night", max_guests: "25", date: DateTime.new(2018, 04, 30, 00, 00, 0), description: "Come get your Settlers of Catan on. $1,000,000 first prize!!!", location: bk, user: j, address: "48 Menahan Street"},
+  {title: "Jaws screening...on the Hudson River!", category: "Movie Night", max_guests: "30", date: DateTime.new(2018, 04, 02, 00, 00, 0), description: "We will be screening jaws on our NEW floating screen! Come early to grab an inner tube to get out on the water for this immersive experience!", location: c, user: cd, address: "62 Chelsea Piers"}
   ])
 
 bday = Event.find_by(title: "My awesome bday!!!")

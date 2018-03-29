@@ -17,7 +17,7 @@ module EventsHelper
   end
 
   def set_center(event)
-    if event.address
+    if !event.address.empty?
       @center = "#{event.address}, New York City"
     else
       @center = event.location.name
