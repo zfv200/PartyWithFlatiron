@@ -31,3 +31,44 @@ end -->
 <%= form_with url: event_path(@event) do |f| %>
   <%= f.submit "Save" %>
 <% end %>
+
+
+def lat
+  #if address
+  if self.address
+    center = Geocoder.search("#{self.address}, New York City")
+    if !center.empty?
+      return latitude_num = center[0].latitude if center[0]
+    else
+      center = Geocoder.search(self.location.name)
+      if center
+        return latitude_num = center[0].latitude if center[0]
+      end
+    end
+  else
+    center = Geocoder.search(self.location.name)
+    if center
+      return latitude_num = center[0].latitude if center[0]
+    end
+  end
+end
+
+def long
+  #if address
+  if self.address
+    center = Geocoder.search("#{self.address}, New York City")
+    if !center.empty?
+      return longitude_num = center[0].longitude if center[0]
+    else
+      center = Geocoder.search(self.location.name)
+      if center
+        return latitude_num = center[0].latitude if center[0]
+      end
+    end
+  else
+    center = Geocoder.search(self.location.name)
+    if center
+      return longitude_num = center[0].longitude if center[0]
+    end
+  end
+end

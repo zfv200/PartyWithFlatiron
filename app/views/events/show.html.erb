@@ -54,14 +54,17 @@
 
 
 <%= rsvp_field(@event, @user, @rsvp)%><br><br>
+
+
 </div>
 
 <div class="ui right floated fliud segment">
-  <img class="ui medium circular image" <%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
+  <img class="ui medium circular image" <%= image_tag google_map(@center, @event.lat, @event.long) %>
 </div>
 
 <br><br>
-Leave a Comment!
+Leave a Comment!<br><br>
+<%= flash[:error]%><br>
 <%= form_for [@event, @comment] do |f| %>
   <%= f.text_area :content%><br>
   <%= f.hidden_field :event_id, value: @event.id%>
@@ -69,11 +72,12 @@ Leave a Comment!
   <%= f.submit "Add Comment"%>
 <% end %>
 
-Comments:
+
+Comments:<br><br>
 <%= flash[:error]%><br><br>
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
   <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
-  <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
+  - <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
   <br>
 <% end %>

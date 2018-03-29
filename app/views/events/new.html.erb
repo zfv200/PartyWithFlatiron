@@ -1,6 +1,9 @@
-<h1>New Event:</h1>
+<h1>New Event:</h1><br>
+
+<%= flash[:error]%>
 
 <%= form_with model: @event do |f|%>
+
 <div class="ui form">
   <div class="fields">
 
@@ -31,9 +34,13 @@
     <div class="four wide field">
       <%= f.select :max_guests, options_for_select([["Select Max Amount of Guests", ""], 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, "50+" ]) %><br>
     </div>
+    
+    
 
   </div>
 </div>
+<%= f.label :street_number_and_name%>
+<%= f.text_field :address%>
 <%= f.hidden_field :user_id, value: User.find(session[:user_id]).id%>
 <%= f.submit %><br>
 <% end %>
