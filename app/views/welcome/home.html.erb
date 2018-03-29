@@ -15,6 +15,11 @@ My Next Event:<br>
 <%= link_to @user.next_event, event_path(Event.find_by(title: @user.next_event)) %>
 <br><br><br>
 <%= link_to "Add Event", new_event_path%>
-<br><br><br><br><br>
+<br><br><br><br>
 
+Suggested Events:<br>
+<% @user.suggested_events.each do |event| %>
+<%= link_to event.title, event_path(event) %><br>
+<% end %>
+<br><br><br><br>
 <%= button_to "Deactivate Profile", "/confirm", method: "get"%>
