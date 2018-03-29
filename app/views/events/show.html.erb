@@ -1,18 +1,62 @@
-Name of Event: <%= @event.title %><br>
-Category: <%= @event.category %><br>
-Date: <%= @event.date.strftime("%A, %B %d")%><br>
-Description: <%= @event.description%><br>
-Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
-Hosted by: <%= @event.user.username %><br>
-Guests Attending:
-<% @rsvps.each do |rsvp| %>
-<%= link_to rsvp.user.username, user_path(rsvp.user) %>
-<% end %>
-<br>
+<div class="ui list">
+  <div class="item">
+    <i class="users icon"></i>
+    <div class="content">
+      Name of Event: <%= @event.title %><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="marker icon"></i>
+    <div class="content">
+      Category: <%= @event.category %><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="mail icon"></i>
+    <div class="content">
+      Date: <%= @event.date.strftime("%A, %B %d")%><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="linkify icon"></i>
+    <div class="content">
+      Description: <%= @event.description%><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="linkify icon"></i>
+    <div class="content">
+      Location: <%= link_to @event.location.name, location_path(@event.location)%><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="linkify icon"></i>
+    <div class="content">
+      Hosted by: <%= @event.user.username %><br>
+    </div>
+  </div>
+  <div class="item">
+    <i class="linkify icon"></i>
+    <div class="content">
+      Guests Attending:
+      <% @rsvps.each do |rsvp| %>
+      <div class="ui horizontal list">
+        <div class="item">
+          <i class="users icon"></i>
+          <div class="content">
+            <%= link_to rsvp.user.username, user_path(rsvp.user) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
 
 <%= rsvp_field(@event, @user, @rsvp)%><br><br>
-
-<%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
+<img class="ui medium circular image" <%= image_tag google_map(@event.location.name, @event.latitude, @event.longitude) %>
 
 
 <br><br>
