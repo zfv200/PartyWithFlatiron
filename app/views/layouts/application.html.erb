@@ -10,12 +10,13 @@
   </head>
 
   <body>
+  <% if current_user %>
     <%= link_to "Home", home_path if !request.fullpath.include?("timer")%>
     <%= link_to "All Events", events_path if !request.fullpath.include?("timer")%>
     <%= link_to "All Locations", locations_path if !request.fullpath.include?("timer")%>
     <%= profile_link if !request.fullpath.include?("timer")%>
     <%= logout_link if !request.fullpath.include?("timer")%>
-
+  <% end %>
 
     <br><br>
     <%= yield %>

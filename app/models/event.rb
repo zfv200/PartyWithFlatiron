@@ -11,12 +11,16 @@ class Event < ApplicationRecord
 
   def latitude
     location = Geocoder.search(self.location.name)
-    latitude = location[0].latitude if location
+    if location
+      latitude = location[0].latitude
+    end
   end
 
   def longitude
     location = Geocoder.search(self.location.name)
-    longitude = location[0].longitude if location
+    if location
+      longitude = location[0].longitude
+    end
   end
 
 
