@@ -60,7 +60,8 @@
 
 
 <br><br>
-Leave a Comment!
+Leave a Comment!<br><br>
+<%= flash[:error]%><br>
 <%= form_for [@event, @comment] do |f| %>
   <%= f.text_area :content%><br>
   <%= f.hidden_field :event_id, value: @event.id%>
@@ -70,7 +71,7 @@ Leave a Comment!
 <br>
 
 Comments:<br><br>
-<%= flash[:error]%><br><br>
+<!-- <%= flash[:error]%><br><br> -->
 <%= "Be the first to comment!" if @event.comments.empty?%>
 <% @event.comments.each do |comment| %>
   <%= link_to comment.user.username, user_path(comment.user)  %>: <%= comment.content %>
