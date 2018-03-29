@@ -17,6 +17,8 @@
 
   <body>
 
+  <% if current_user %>
+
     <button class="ui labeled icon button">
       <i class="home icon"></i>
       <%= link_to "Home", home_path if !request.fullpath.include?("timer")%>
@@ -34,6 +36,8 @@
 
       <button class="ui button"><%= profile_link if !request.fullpath.include?("timer")%></button>
       <button class="ui button"><%= logout_link if !request.fullpath.include?("timer")%></button>
+
+  <% end %>
 
     <br><br>
     <%= yield %>

@@ -13,4 +13,21 @@ class User < ApplicationRecord
     end
   end
 
+  def next_event
+    rsvp = self.rsvps.sort_by { |rsvp| rsvp.event.date.to_i - DateTime.now.to_i }.first
+    rsvp.event.title
+  end
+
+  def suggested_events
+    array = self.rsvps.collect { |rsvp| rsvp.event.rsvps }
+    users_array = array.collect {|rsvp_collection| rsvp_collection.collect { |rsvp| rsvp.user }}
+    users = users_array.collect { |event_users| event_users.collect { |user| user.username }}.flatten.uniq
+    objects = users.collect { |user| User.find_by(username: user) }
+    events = objects.collect { |user| user.rsvps.collect { |rsvp_array| rsvp_array.event.title } }.flatten.uniq
+    self_events = self.rsvps.collect { |rsvp| rsvp.event.title }
+    my_events = self.events.collect {|event| event.title}
+    suggested_events = events.select { |event| !self_events.include?(event) && !my_events.include?(event) }
+    suggested = suggested_events.collect { |event| Event.find_by(title: event)}
+  end
+
 end
