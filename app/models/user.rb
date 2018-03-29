@@ -13,4 +13,9 @@ class User < ApplicationRecord
     end
   end
 
+  def next_event
+    rsvp = self.rsvps.sort_by { |rsvp| rsvp.event.date.to_i - DateTime.now.to_i }.first
+    rsvp.event.title
+  end
+
 end

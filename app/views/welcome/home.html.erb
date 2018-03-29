@@ -11,6 +11,9 @@ Events I'm Attending:<br>
 <% end %>
 <br>
 
+My Next Event:<br>
+<%= link_to @user.next_event, event_path(Event.find_by(title: @user.next_event)) %>
+<br><br><br>
 <%= link_to "Add Event", new_event_path%>
 <br><br><br><br><br>
 
