@@ -9,17 +9,17 @@ class Event < ApplicationRecord
   after_validation :geocode
 
 
-  def latitude
+  def lat
     location = Geocoder.search(self.location.name)
     if location
-      latitude = location[0].latitude
+      latitude_num = location[0].latitude if location[0]
     end
   end
 
-  def longitude
+  def long
     location = Geocoder.search(self.location.name)
     if location
-      longitude = location[0].longitude
+      longitude_num = location[0].longitude if location[0]
     end
   end
 

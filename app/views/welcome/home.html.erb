@@ -12,7 +12,7 @@ Events I'm Attending:<br>
 <br>
 
 My Next Event:<br>
-<%= link_to @user.next_event, event_path(Event.find_by(title: @user.next_event)) %>
+<%= link_to @user.next_event, event_path(Event.find_by(title: @user.next_event)) if !@user.rsvps.empty? %>
 <br><br><br>
 <%= link_to "Add Event", new_event_path%>
 <br><br><br><br>
