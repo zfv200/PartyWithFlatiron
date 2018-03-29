@@ -1,5 +1,8 @@
 {
   "name": "PartyWithFlatiron",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "semantic-ui": "^2.3.1"
+  }
 }

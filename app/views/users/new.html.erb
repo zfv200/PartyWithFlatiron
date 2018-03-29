@@ -1,24 +1,57 @@
-<h2>Login:</h2><br><br>
+<h2>Login:</h2>
 
 <%= form_for @user, url: login_path, method: 'post' do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Login"%>
+<div class="ui form">
+  <div class="fields">
+    <div class="six wide field">
+      <%= f.label :username %>
+      <%= f.text_field :username%>
+    </div>
+    <div class="six wide field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+  </div>
+</div>
+<%= f.submit "Login"%>
 <% end %>
 
 <h2>New User:</h2>
 <%= form_for @user do |f| %>
-<%= f.label :username %>
-<%= f.text_field :username %><br>
-<%= f.label :password %>
-<%= f.password_field :password %><br>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %><br>
-<%= f.label :age %>
-<%= f.number_field :age %><br>
-<%= f.label :email %>
-<%= f.email_field :email %><br>
-<%= f.submit %>
+  <div class="ui form">
+    <div class="fields">
+
+      <div class="six wide field">
+        <%= f.label :username %>
+        <%= f.text_field :username %><br>
+      </div>
+
+      <div class="two wide field">
+        <%= f.label :age %>
+        <%= f.number_field :age %><br>
+      </div>
+
+      <div class="four wide field">
+        <%= f.label :email %>
+        <%= f.email_field :email %><br>
+      </div>
+    </div>
+
+    <div class="fields">
+
+      <div class="six wide field">
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
+      </div>
+
+      <div class="six wide field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %><br>
+      </div>
+
+    </div>
+
+    <%= f.submit %>
+  </div>
+
 <% end %>

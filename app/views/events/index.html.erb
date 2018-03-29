@@ -11,11 +11,47 @@
 <% end %><br>
 
 
+<h1>try to get dropdown search by locaiton working</h1>
+<%= form_with url: '/search', method: :get, local: true do |f|%>
+<div class="ui floating dropdown labeled search icon button">
+  <i class="search icon"></i>
+  <span class="text"><%= f.label :q, "Filter by location:"%></span>
+  <div class="menu">
+    <div class="item"> <%= f.collection_select :location_id, Location.all, :id, :name, include_blank: true%>
+    </div>
+  </div>
+</div>
+<%= f.submit "Filter"%>
+<% end %><br>
+
+
+
+
+
+
 <% @events.each do |event| %>
-Name of Event: <%= link_to event.title, event_path(event) %><br>
-Category: <%= event.category %><br>
-Date: <%= event.date.strftime("%A, %B %d")%><br>
-Description: <%= event.description%><br>
-Location: <%= event.location.name%><br>
-Hosted by: <%= event.user.username %><br><br><br>
+<div class="ui link cards">
+  <div class="card">
+    <div class="image">
+      <img src="/images/avatar2/large/matthew.png">
+    </div>
+    <div class="content">
+      <div class="header">Name of Event: <%= link_to event.title, event_path(event) %></div>
+      <div class="meta">
+        <a>Category: <%= event.category %></a><br>
+        <a>Location: <%= event.location.name%></a><br>
+        <a>Date: <%= event.date.strftime("%A, %B %d")%></a>
+      </div>
+      <div class="description">
+        Description: <%= event.description%>
+      </div>
+    </div>
+      <span>
+        <i class="user icon"></i>
+        Hosted by: <%= event.user.username %>
+      </span>
+    </div>
+  </div>
+</div>
+
 <% end %>
