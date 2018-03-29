@@ -45,5 +45,7 @@ Rsvp.create([
   {event: game, user: z},
   {event: game, user: cd},
   {event: dance, user: j},
-  {event: dance, user: z}
+  {event: dance, user: z},
+  {event: movie, user: j},
+  {event: game, user: j}
 ])
