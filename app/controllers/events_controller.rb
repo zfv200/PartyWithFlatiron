@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    byebug
     @event = Event.new(event_params)
 
     if @event.save
@@ -44,7 +45,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :category, :max_guests, :date, :description, :location_id, :user_id)
+    params.require(:event).permit(:title, :category, :max_guests, :date, :description, :location_id, :user_id, :address)
   end
 
 end

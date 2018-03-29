@@ -10,14 +10,16 @@ class Event < ApplicationRecord
 
 
   def lat
-    location = Geocoder.search(self.location.name)
+    #if address
+    location = Geocoder.search("#{self.address}, New York City")
     if location
       latitude_num = location[0].latitude if location[0]
     end
   end
 
   def long
-    location = Geocoder.search(self.location.name)
+    #if address
+    location = Geocoder.search("#{self.address}, New York City")
     if location
       longitude_num = location[0].longitude if location[0]
     end
