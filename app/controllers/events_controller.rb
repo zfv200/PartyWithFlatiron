@@ -34,7 +34,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
-
+    set_event
+    @event.rsvps.destroy_all
+    @event.destroy
+    redirect_to home_path
   end
 
   private

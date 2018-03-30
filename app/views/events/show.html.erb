@@ -81,6 +81,8 @@
       <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
     <br>
     <% end %>
+    <%= button_to "delete event", event_path(@event), method: :delete if @event.user == @user%>
+
   </div>
 
   <div class="four wide column">
@@ -88,3 +90,4 @@
   </div>
 
 </div>
+
