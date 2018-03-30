@@ -7,19 +7,42 @@ class Event < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode
+  validate :address_validator
 
 
-  def latitude
-    location = Geocoder.search(self.location.name)
-    if location
-      latitude = location[0].latitude
+  def lat
+    #if address
+    if self.address
+      center = Geocoder.search("#{self.address}, New York City")
+      if center
+        latitude_num = center[0].latitude if center[0]
+      end
+    else
+      center = Geocoder.search(self.location.name)
+      if center
+        latitude_num = center[0].latitude if center[0]
+      end
     end
   end
 
-  def longitude
-    location = Geocoder.search(self.location.name)
-    if location
-      longitude = location[0].longitude
+  def long
+    #if address
+    if self.address
+      center = Geocoder.search("#{self.address}, New York City")
+      if center
+        longitude_num = center[0].longitude if center[0]
+      end
+    else
+      center = Geocoder.search(self.location.name)
+      if center
+        longitude_num = center[0].longitude if center[0]
+      end
+    end
+  end
+
+  def address_validator
+    if Geocoder.search("#{self.address}, New York City").empty?
+      errors.add(:address, "Please enter a valid address!")
     end
   end
 

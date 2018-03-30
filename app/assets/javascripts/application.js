@@ -13,3 +13,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+$('.ui.accordion')
+  .accordion("on")
+;

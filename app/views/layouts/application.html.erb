@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
-
+      
   </head>
 
   <body>
@@ -34,8 +34,15 @@
       <%= link_to "All Locations", locations_path if !request.fullpath.include?("timer")%>
     </button>
 
-      <button class="ui button"><%= profile_link if !request.fullpath.include?("timer")%></button>
-      <button class="ui button"><%= logout_link if !request.fullpath.include?("timer")%></button>
+      <button class="ui labeled icon button">
+        <i class="user icon"></i>
+        <%= profile_link if !request.fullpath.include?("timer")%>
+      </button>
+
+      <button class="ui labeled icon button">
+        <i class="times circle outline icon"></i>
+        <%= logout_link if !request.fullpath.include?("timer")%>
+      </button>
 
   <% end %>
 
