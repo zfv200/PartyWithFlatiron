@@ -61,6 +61,12 @@
       </div>
     </div>
       <%= rsvp_field(@event, @user, @rsvp)%>
+      <br>
+      <br>
+      <br>
+      <button class="large ui button">
+      <%= button_to "delete event", event_path(@event), method: :delete if @event.user == @user%>
+      </button>
   </div>
 
   <div class="four wide column">
@@ -73,7 +79,7 @@
       <%= f.submit "Add Comment"%>
       <% end %>
 
-      Comments:<br><br>
+      Comments:
       <%= flash[:error]%><br><br>
       <%= "Be the first to comment!" if @event.comments.empty?%>
       <% @event.comments.each do |comment| %>
@@ -81,7 +87,7 @@
       <%= link_to "delete", event_comment_path(@event, comment), method: :delete if comment.user == @user %>
     <br>
     <% end %>
-    <%= button_to "delete event", event_path(@event), method: :delete if @event.user == @user%>
+
 
   </div>
 
@@ -90,4 +96,3 @@
   </div>
 
 </div>
-

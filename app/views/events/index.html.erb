@@ -10,10 +10,11 @@
 <%= f.submit "Filter"%>
 <% end %><br>
 
+<div class="ui three column grid">
 <% @events.each do |event| %>
-<div class="grid">
-  <div class="ui four cards">
-    <div class="card">
+
+  <div class="column">
+    <div class="ui fluid card">
       <div class="image">
         <% if event.category == "Birthday" %>
           <img src="Birthday.png">
@@ -44,6 +45,6 @@
         </span>
       </div>
     </div>
-  </div>
 <% end %>
+</div>
 </div>
